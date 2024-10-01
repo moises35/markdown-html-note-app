@@ -1,47 +1,33 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="min-h-screen bg-gray-900 text-gray-100">
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold mb-6">Markdown a HTML - Conversor de Notas</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-baseline">
+        <UploadSection />
+        <div class="space-y-6">
+          <FilesSection />
+          <HtmlSection />
+        </div>
+      </div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script setup>
+import UploadSection from '@/components/Sections/UploadSection.vue'
+import FilesSection from '@/components/Sections/FIlesSection.vue'
+import HtmlSection from '@/components/Sections/HtmlSection.vue'
+import { onMounted, ref } from 'vue'
+import envs from './configs/envs'
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+// const handleFileUpload = (event) => {
+//   file.value = event.target.files[0]
+//   if (file.value) {
+//     const reader = new FileReader()
+//     reader.onload = (e) => {
+//       noteContent.value = e.target.result
+//     }
+//     reader.readAsText(file.value)
+//   }
+// }
+</script>

@@ -1,0 +1,14 @@
+ ### Get All Movies Notes
+GET http://localhost:1234/api/notes
+
+
+### Get Note by FileName
+GET http://localhost:1234/api/notes/{id}
+
+### Transform Markdown to HTML
+POST http://localhost:1234/api/notes/md-to-html
+Content-Type: application/json
+
+{
+  "markdown": "# Hello World"
+}
